@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
 </head>
-<body>
+<body class="bg-info">
     <div id="app">
-        <div class="container">
+        <div class="container border p-5 mt-5 bg-light">
             <div class="row">
                 <div class="col-12">
                     <h1 class="text-center my-3">TO-DO-LIST</h1>
@@ -19,22 +19,24 @@
                 <div class="col-12">
                     <ul class="list-unstyled">
                         <!-- LIST TASK  -->
-                        <li v-for='todo, index in toDoList' :key='index' class='py-2 text-capitalize cursor-pointer d-flex'  :class="todo.done ? 'text-decoration-line-through' : '' ">
-                            <!-- BUTTON CHECK  -->
-                            <button @click='todo.done = !todo.done' class="btn btn-sm rounded-circle me-3" :class="todo.done ? 'btn-danger' : 'btn-success'"><i :class="todo.done ? 'fas fa-x' : 'fas fa-check' "></i></button>
-                            <div @click='todo.done = !todo.done'> {{ todo.name }} </div>
+                        <li v-for='todo, index in toDoList' :key='index' class='py-3 text-capitalize border-bottom d-flex justify-content-between'>
+                            <div>
+                                <!-- BUTTON CHECK  -->
+                                <button @click='todo.done = !todo.done' class="btn btn-sm rounded-circle me-3" :class="todo.done ? 'btn-danger' : 'btn-success'"><i :class="todo.done ? 'fas fa-x' : 'fas fa-check' "></i></button>
+                                <div @click='todo.done = !todo.done' class='d-inline fs-5' :class="todo.done ? 'text-decoration-line-through' : '' "> {{ todo.name }} </div>
+                            </div>
                             <!-- BUTTON REMOVE  -->
-                            <button @click='leaveItem(index)' class="btn btn-sm rounded-circle ms-3 btn-danger "><i class="fas fa-trash"></i></button>
+                            <button @click='leaveItem(index)' class="btn btn-sm rounded-circle ms-3 btn-danger"><i class="fas fa-trash"></i></button>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-8">
                     <!-- INPUT FOR ADD TASK  -->
-                    <div class="input-group">
-                        <input type="text" placeholder='Aggiungi una nuova task' v-model='newTask' @keyup.enter='addTask'>
-                        <button @click='addTask()'>Aggiungi</button>
+                    <div class="input-group mt-5">
+                        <input type="text" placeholder='Aggiungi una nuova task' v-model='newTask' @keyup.enter='addTask' class='form-control'>
+                        <button @click='addTask()' class='btn btn-sm btn-success'>Aggiungi</button>
                     </div>
                 </div>
             </div>
