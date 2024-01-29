@@ -18,17 +18,22 @@
                 </div>
                 <div class="col-12">
                     <ul class="list-unstyled">
+                        <!-- LIST TASK  -->
                         <li v-for='todo, index in toDoList' :key='index' class='py-2 text-capitalize cursor-pointer d-flex'  :class="todo.done ? 'text-decoration-line-through' : '' ">
+                            <!-- BUTTON CHECK  -->
                             <button @click='todo.done = !todo.done' class="btn btn-sm rounded-circle me-3" :class="todo.done ? 'btn-danger' : 'btn-success'"><i :class="todo.done ? 'fas fa-x' : 'fas fa-check' "></i></button>
                             <div @click='todo.done = !todo.done'> {{ todo.name }} </div>
+                            <!-- BUTTON REMOVE  -->
+                            <button @click='leaveItem(index)' class="btn btn-sm rounded-circle ms-3 btn-danger "><i class="fas fa-trash"></i></button>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="row">
                 <div class="col-8">
+                    <!-- INPUT FOR ADD TASK  -->
                     <div class="input-group">
-                        <input type="text" placeholder='Aggiungi una nuova task' v-model='newTask'>
+                        <input type="text" placeholder='Aggiungi una nuova task' v-model='newTask' @keyup.enter='addTask'>
                         <button @click='addTask()'>Aggiungi</button>
                     </div>
                 </div>

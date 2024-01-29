@@ -12,11 +12,13 @@ createApp({
         this.getTodoList()
     },
     methods: {
+        // GET LIST 
         getTodoList() {
             axios.get(this.apiUrl).then((response) => {
                 this.toDoList = response.data;
             })
         },
+        // FUCTION ADD TASK 
         addTask() {
             const data = {
                 item: this.newTask,
@@ -25,6 +27,17 @@ createApp({
                 headers: { 'content-type': 'multipart/form-data' }
             }).then((response) => {
                 this.newTask = '';
+                this.toDoList = response.data
+            })
+        },
+        // FUNCTION REMOVE TASK 
+        leaveItem(index) {
+            const data = {
+                key: index
+            }
+            axios.post(this.apiUrl, data, {
+                headers: { 'content-type': 'multipart/form-data' }
+            }).then((response) => {
                 this.toDoList = response.data
             })
         }
