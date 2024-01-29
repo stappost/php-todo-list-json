@@ -16,6 +16,6 @@ createApp({
                 this.toDoList = response.data;
                 console.log(response.data)
             })
-        }
+        },
     }
 }).mount('#app')
