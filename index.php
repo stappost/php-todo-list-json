@@ -22,8 +22,8 @@
                         <li v-for='todo, index in toDoList' :key='index' class='py-3 text-capitalize border-bottom d-flex justify-content-between'>
                             <div>
                                 <!-- BUTTON CHECK  -->
-                                <button @click='todo.done = !todo.done' class="btn btn-sm rounded-circle me-3" :class="todo.done ? 'btn-danger' : 'btn-success'"><i :class="todo.done ? 'fas fa-x' : 'fas fa-check' "></i></button>
-                                <div @click='todo.done = !todo.done' class='d-inline fs-5' :class="todo.done ? 'text-decoration-line-through' : '' "> {{ todo.name }} </div>
+                                <button @click='done(index)' class="btn btn-sm rounded-circle me-3" :class="todo.done ? 'btn-danger' : 'btn-success'"><i :class="todo.done ? 'fas fa-x' : 'fas fa-check' "></i></button>
+                                <div @click='done = !todo.done' class='d-inline fs-5' :class="todo.done ? 'text-decoration-line-through' : '' "> {{ todo.name }} </div>
                             </div>
                             <!-- BUTTON REMOVE  -->
                             <button @click='leaveItem(index)' class="btn btn-sm rounded-circle ms-3 btn-danger"><i class="fas fa-trash"></i></button>

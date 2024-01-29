@@ -19,7 +19,13 @@
         array_splice($list, $index, 1);
         file_put_contents('todoList.json', json_encode($list));
     }
-    
+    if(isset($_POST['done_index'])){
+        $check = $_POST['done_index'];
+        $list[$check]['done'] = !$list[$check]['done'];
+        // $list["check"] = !$list["check"];
+        file_put_contents('todoList.json', json_encode($list));
+    }
+
     header('content-type: application/json');
     echo json_encode($list)
 ?>

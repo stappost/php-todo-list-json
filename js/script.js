@@ -40,6 +40,17 @@ createApp({
             }).then((response) => {
                 this.toDoList = response.data
             })
+        },
+        // FUNCTION CHECK 
+        done(index) {
+            const data = {
+                done_index: index
+            }
+            axios.post(this.apiUrl, data, {
+                headers: { 'content-type': 'multipart/form-data' }
+            }).then((response) => {
+                this.toDoList = response.data
+            })
         }
     }
 }).mount('#app')
