@@ -5,6 +5,7 @@ createApp({
         return {
             apiUrl: 'server.php',
             toDoList: [],
+            newTask: ''
         }
     },
     mounted() {
@@ -14,8 +15,18 @@ createApp({
         getTodoList() {
             axios.get(this.apiUrl).then((response) => {
                 this.toDoList = response.data;
-                console.log(response.data)
             })
         },
+        addTask() {
+            const data = {
+                item: this.newTask,
+            }
+            axios.post(this.apiUrl, data, {
+                headers: { 'content-type': 'multipart/form-data' }
+            }).then((response) => {
+                this.newTask = '';
+                this.toDoList = response.data
+            })
+        }
     }
 }).mount('#app')
