@@ -17,7 +17,7 @@
                 </div>
                 <div class="col-12">
                     <ul class="list-unstyled">
-                        <li v-for='todo, index in toDoList' :key='index'class='py-2 text-capitalize'>{{ todo.name }}</li>
+                        <li v-for='todo, index in toDoList' :key='index' class='py-2 text-capitalize'>{{ todo.name }}</li>
                     </ul>
                 </div>
             </div>

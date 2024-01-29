@@ -1,20 +1,26 @@
 [
     {
-        "name": "fare la spesa"
+        "name": "fare la spesa",
+        "done": false
     },
     {
-        "name": "cucinare"
+        "name": "cucinare",
+        "done": true
     },
     {
-        "name": "dare da mangiare al gatto"
+        "name": "dare da mangiare al gatto",
+        "done": false
     },
     {
-        "name": "portare la macchina dal meccanico"
+        "name": "portare la macchina dal meccanico",
+        "done": false
     },
     {
-        "name": "comprare una bici"
+        "name": "comprare una bici",
+        "done": false
     },
     {
-        "name": "trovare il regalo per zia"
+        "name": "trovare il regalo per zia",
+        "done": false
     }
 ]
