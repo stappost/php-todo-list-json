@@ -18,7 +18,7 @@
                 </div>
                 <div class="col-12">
                     <ul class="list-unstyled">
-                        <li v-for='todo, index in toDoList' :key='index' class='py-2 text-capitalize' :class="todo.done ? 'text-decoration-line-through' : '' ">
+                        <li v-for='todo, index in toDoList' :key='index' class='py-2 text-capitalize cursor-pointer' @click='todo.done = !todo.done' :class="todo.done ? 'text-decoration-line-through' : '' ">
                             <button @click='todo.done = !todo.done' class="btn btn-sm rounded-circle me-3" :class="todo.done ? 'btn-danger' : 'btn-success'"><i :class="todo.done ? 'fas fa-x' : 'fas fa-check' "></i></button>
                             {{ todo.name }}
                         </li>
